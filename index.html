@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shekinah Pharmacy | Promoting Total Health</title>
+
+    <meta
+        name="description"
+        content="Shekinah Pharmacy is committed to providing healthcare solutions with compassion and professionalism in Lagos, Nigeria."
+    >
+
+    <style>
+        /* =========================================================
+           SHEKINAH PHARMACY
+           Single-file website
+           HTML + CSS + JavaScript
+        ========================================================= */
+
+        :root {
+            --primary: #173b8f;
+            --primary-dark: #102d70;
+            --secondary: #2563eb;
+            --accent: #e53935;
+            --text: #172033;
+            --muted: #64748b;
+            --light: #f5f8ff;
+            --white: #ffffff;
+            --border: #e5eaf2;
+            --success: #16845b;
+            --shadow: 0 15px 40px rgba(20, 43, 90, 0.10);
+            --radius: 18px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* =========================================================
+           TOP BAR
+        ========================================================= */
+
+        .top-bar {
+            background: var(--primary-dark);
+            color: white;
+            font-size: 14px;
+        }
+
+        .top-bar-inner {
+            min-height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-bar span {
+            opacity: 0.95;
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            object-fit: contain;
+            background: white;
+        }
+
+        .brand-text {
+            line-height: 1.1;
+        }
+
+        .brand-name {
+            font-size: 21px;
+            color: var(--primary);
+        }
+
+        .brand-tagline {
+            font-size: 10px;
+            color: var(--accent);
+            letter-spacing: 1px;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #3c4659;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            border: 0;
+            cursor: pointer;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: 0.25s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: white;
+        }
+
+        .btn-outline:hover {
+            background: var(--light);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 0;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            background:
+                radial-gradient(circle at 90% 20%, rgba(37,99,235,0.10), transparent 32%),
+                linear-gradient(135deg, #f7faff 0%, #ffffff 65%);
+            padding: 90px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            background: #eaf0ff;
+            padding: 8px 13px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.03;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            color: #12244d;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            max-width: 620px;
+            color: var(--muted);
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+      .hero-image {
+    min-height: 430px;
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(
+            rgba(23,59,143,0.10),
+            rgba(23,59,143,0.18)
+        ),
+        url("pic 1.jpg")
+        center/cover;
+    box-shadow: var(--shadow);
+}
+        .hero-card {
+            position: absolute;
+            left: 25px;
+            bottom: 25px;
+            background: rgba(255,255,255,0.96);
+            padding: 18px;
+            border-radius: 15px;
+            max-width: 270px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .hero-card small {
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats {
+            padding: 25px 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .stat {
+            padding: 18px;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 25px;
+            color: var(--primary);
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           GENERAL SECTION
+        ========================================================= */
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            max-width: 680px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(30px, 4vw, 45px);
+            line-height: 1.15;
+            color: #15284f;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about {
+            background: var(--light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+    min-height: 400px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            rgba(23,59,143,0.06),
+            rgba(23,59,143,0.06)
+        ),
+        url("pic 2.jpg")
+        center/cover;
+
+    box-shadow: var(--shadow);
+}
+
+        .about-content h2 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #15284f;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .check-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .check-list li {
+            margin: 12px 0;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .check {
+            color: var(--success);
+            font-weight: 900;
+        }
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: var(--radius);
+            background: white;
+            transition: 0.25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: #d8e2f6;
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: #edf3ff;
+            color: var(--primary);
+            display: grid;
+            place-items: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           PRODUCTS
+        ========================================================= */
+
+        .products {
+            background: var(--light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .product-info p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* =========================================================
+           BRANCHES
+        ========================================================= */
+
+        .location-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--primary);
+            border-radius: 25px;
+            overflow: hidden;
+            color: white;
+        }
+
+        .location-content {
+            padding: 50px;
+        }
+
+        .location-content h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .location-content p {
+            color: rgba(255,255,255,0.80);
+            margin-bottom: 25px;
+        }
+
+        .location-details {
+            display: grid;
+            gap: 15px;
+        }
+
+        .location-detail {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .location-detail strong {
+            display: block;
+        }
+
+        .location-detail span {
+            color: rgba(255,255,255,0.75);
+            font-size: 14px;
+        }
+
+        .map-placeholder {
+            min-height: 400px;
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.12),
+                    rgba(0,0,0,0.12)
+                ),
+                url("https://images.unsplash.com/photo-1524666041070-9cffc4b1d7a0?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-label {
+            background: white;
+            color: var(--primary);
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-weight: 800;
+            box-shadow: var(--shadow);
+        }
+
+        /* =========================================================
+           STAFF LOGIN CTA
+        ========================================================= */
+
+        .staff-section {
+            background:
+                linear-gradient(135deg, #eef3ff, #ffffff);
+        }
+
+        .staff-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .staff-box h2 {
+            font-size: 34px;
+            color: #15284f;
+            margin-bottom: 10px;
+        }
+
+        .staff-box p {
+            color: var(--muted);
+            max-width: 650px;
+        }
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .contact-card {
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+        }
+
+        .phone-number {
+            color: var(--primary);
+            font-size: 22px;
+            font-weight: 800;
+            margin-top: 8px;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #0e1e40;
+            color: white;
+            padding: 55px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 40px;
+        }
+
+        footer .brand-name {
+            color: white;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.68);
+            font-size: 14px;
+            margin-top: 15px;
+            max-width: 400px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,0.70);
+            font-size: 14px;
+            margin: 9px 0;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.55);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* =========================================================
+           LOGIN MODAL
+        ========================================================= */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(7,18,42,0.65);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 2000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .login-box {
+            background: white;
+            width: min(430px, 100%);
+            border-radius: 22px;
+            padding: 35px;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 18px;
+            top: 15px;
+            border: 0;
+            background: transparent;
+            font-size: 25px;
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        .login-logo {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 15px;
+            object-fit: contain;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.10);
+        }
+
+        .forgot {
+            display: block;
+            text-align: right;
+            margin: 4px 0 18px;
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .login-submit {
+            width: 100%;
+        }
+
+        .login-message {
+            padding: 10px 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .login-message.error {
+            background: #fff1f1;
+            color: #b42318;
+            border: 1px solid #f3c2c2;
+        }
+
+        .login-message.success {
+            background: #edf9f3;
+            color: #16845b;
+            border: 1px solid #bfe8d1;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .nav-links,
+            .nav-actions {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-mobile.active {
+                display: block;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .location-card {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                min-height: 350px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .staff-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .top-bar-inner {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .top-bar-inner span:last-child {
+                display: none;
+            }
+
+            .navbar {
+                min-height: 68px;
+            }
+
+            .brand-logo {
+                width: 42px;
+                height: 42px;
+            }
+
+            .brand-name {
+                font-size: 18px;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+                letter-spacing: -1px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .services-grid,
+            .products-grid,
+            .contact-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .location-content {
+                padding: 30px;
+            }
+
+            .location-content h2 {
+                font-size: 30px;
+            }
+
+            .staff-box {
+                padding: 30px;
+            }
+
+            .login-box {
+                padding: 28px 22px;
+            }
+        }
+
+        /* Mobile navigation */
+
+        .mobile-menu {
+            display: none;
+            border-top: 1px solid var(--border);
+            padding: 15px 0 20px;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 11px 0;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .mobile-menu .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         TOP BAR
+    ========================================================== -->
+
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <span>📍 Lagos, Nigeria</span>
+            <span>Professional healthcare support you can trust.</span>
+        </div>
+    </div>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <header>
+        <div class="container navbar">
+
+            <a href="#home" class="brand">
+
+                <!-- Replace this src with your final hosted logo if necessary -->
+                <img
+                    src="logo.png"
+                    alt="Shekinah Pharmacy Logo"
+                    class="brand-logo"
+                >
+
+                <div class="brand-text">
+                    <div class="brand-name">Shekinah Pharmacy</div>
+                    <div class="brand-tagline">Promoting Total Health</div>
+                </div>
+
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="openLogin()">
+                    Staff Login
+                </button>
+
+                <a href="#contact" class="btn btn-primary">
+                    Contact Us
+                </a>
+            </div>
+
+            <button
+                class="menu-toggle"
+                onclick="toggleMobileMenu()"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+        <div class="container mobile-menu" id="mobileMenu">
+            <a href="#home" onclick="closeMobileMenu()">Home</a>
+            <a href="#about" onclick="closeMobileMenu()">About</a>
+            <a href="#services" onclick="closeMobileMenu()">Services</a>
+            <a href="#products" onclick="closeMobileMenu()">Products</a>
+            <a href="#location" onclick="closeMobileMenu()">Location</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+
+            <button
+                class="btn btn-primary"
+                onclick="openLogin(); closeMobileMenu();"
+            >
+                Staff Login
+            </button>
+        </div>
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="container hero-grid">
+
+                <div>
+
+                    <div class="eyebrow">
+                        Your Health. Our Commitment.
+                    </div>
+
+                    <h1>
+                        Welcome to
+                        <span>Shekinah Pharmacy</span>
+                    </h1>
+
+                    <div class="hero-subtitle">
+                        Promoting Total Health.
+                    </div>
+
+                    <p class="hero-description">
+                        Shekinah Pharmacy is committed to providing healthcare
+                        solutions with compassion and professionalism. We offer
+                        a wide range of pharmaceutical products, health supplies,
+                        and personalized services to support your wellness journey.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary">
+                            Explore Our Services
+                        </a>
+
+                        <a href="#contact" class="btn btn-outline">
+                            Contact Pharmacy
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Main image placeholder -->
+                <div class="hero-image">
+
+                    <div class="hero-card">
+                        <strong>Trusted Healthcare</strong>
+                        <small>
+                            Quality pharmaceutical products and
+                            professional service for your wellbeing.
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             STATS
+        ====================================================== -->
+
+        <section class="stats">
+
+            <div class="container stats-grid">
+
+                <div class="stat">
+                    <strong>20+</strong>
+                    <span>Branches</span>
+                </div>
+
+                <div class="stat">
+                    <strong>24/7</strong>
+                    <span>Healthcare Commitment</span>
+                </div>
+
+                <div class="stat">
+                    <strong>100%</strong>
+                    <span>Customer Focus</span>
+                </div>
+
+                <div class="stat">
+                    <strong>✓</strong>
+                    <span>Professional Service</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section class="about" id="about">
+
+            <div class="container about-grid">
+
+                <!-- Image placeholder -->
+                <div class="about-image"></div>
+
+                <div class="about-content">
+
+                    <div class="section-label">About Shekinah</div>
+
+                    <h2>
+                        Healthcare with compassion and professionalism.
+                    </h2>
+
+                    <p>
+                        Shekinah Pharmacy is committed to providing healthcare
+                        solutions with compassion and professionalism.
+                    </p>
+
+                    <p>
+                        We aim to make access to quality pharmaceutical
+                        products, health supplies and reliable healthcare
+                        support simple and convenient for individuals,
+                        families and communities.
+                    </p>
+
+                    <ul class="check-list">
+
+                        <li>
+                            <span class="check">✓</span>
+                            Quality pharmaceutical products
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Professional customer service
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Convenient access to healthcare supplies
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Personalized support for your wellness journey
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SERVICES
+        ====================================================== -->
+
+        <section id="services">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-label">Our Services</div>
+
+                    <h2>
+                        Healthcare services designed around you.
+                    </h2>
+
+                    <p>
+                        We provide convenient pharmaceutical and health
+                        services with professionalism and care.
+                    </p>
+
+                </div>
+
+
+                <div class="services-grid">
+
+                    <article class="service-card">
+
+                        <div class="service-icon">💊</div>
+
+                        <h3>Pharmaceutical Products</h3>
+
+                        <p>
+                            Access a wide range of pharmaceutical products
+                            and everyday healthcare essentials.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">🩺</div>
+
+                        <h3>Health Supplies</h3>
+
+                        <p>
+                            Healthcare supplies and wellness products
+                            for individuals and families.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">👩‍⚕️</div>
+
+                        <h3>Professional Support</h3>
+
+                        <p>
+                            Friendly and professional assistance to help
+                            customers make informed healthcare decisions.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">🏪</div>
+
+                        <h3>Multiple Locations</h3>
+
+                        <p>
+                            Our growing branch network makes it easier
+                            to access Shekinah Pharmacy services.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">📦</div>
+
+                        <h3>Health & Wellness</h3>
+
+                        <p>
+                            Products and supplies supporting everyday
+                            health and personal wellness.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <div class="service-icon">❤️</div>
+
+                        <h3>Customer Care</h3>
+
+                        <p>
+                            We believe every customer deserves respectful,
+                            compassionate and professional service.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PRODUCTS
+        ====================================================== -->
+
+        <section class="products" id="products">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-label">What We Offer</div>
+
+                    <h2>
+                        Healthcare essentials for everyday wellbeing.
+                    </h2>
+
+                    <p>
+                        Image placeholders are provided below and can later
+                        be replaced with actual Shekinah Pharmacy product
+                        and branch photographs.
+                    </p>
+
+                </div>
+
+
+                <div class="products-grid">
+
+                    <article class="product-card">
+
+                        <div
+                            class="product-image"
+                            style="background-image:url('https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=700&q=80');"
+                        ></div>
+
+                        <div class="product-info">
+                            <h3>Medicines</h3>
+                            <p>Pharmaceutical products and everyday medicines.</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div
+                            class="product-image"
+                            style="background-image:url('https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=80');"
+                        ></div>
+
+                        <div class="product-info">
+                            <h3>Personal Care</h3>
+                            <p>Personal health and hygiene products.</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div
+                            class="product-image"
+                            style="background-image:url('https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=700&q=80');"
+                        ></div>
+
+                        <div class="product-info">
+                            <h3>Health Supplies</h3>
+                            <p>Essential healthcare supplies for everyday needs.</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div
+                            class="product-image"
+                            style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80');"
+                        ></div>
+
+                        <div class="product-info">
+                            <h3>Wellness</h3>
+                            <p>Products supporting healthy everyday living.</p>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LOCATION
+        ====================================================== -->
+
+        <section id="location">
+
+            <div class="container">
+
+                <div class="location-card">
+
+                    <div class="location-content">
+
+                        <div class="section-label" style="color:#ff7777;">
+                            Find Us
+                        </div>
+
+                        <h2>
+                            Shekinah Pharmacy
+                        </h2>
+
+                        <p>
+                            Conveniently serving customers in Lagos, Nigeria,
+                            with a growing network of pharmacy locations.
+                        </p>
+
+                        <div class="location-details">
+
+                            <div class="location-detail">
+                                <div>📍</div>
+                                <div>
+                                    <strong>Location</strong>
+                                    <span>Lagos, Nigeria</span>
+                                </div>
+                            </div>
+
+                            <div class="location-detail">
+                                <div>📞</div>
+                                <div>
+                                    <strong>Phone</strong>
+                                    <span>0800 XXX XXXX</span>
+                                </div>
+                            </div>
+
+                            <div class="location-detail">
+                                <div>✉️</div>
+                                <div>
+                                    <strong>Email</strong>
+                                    <span>info@shekinahpharmacy.com</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Map / branch image placeholder -->
+                    <div class="map-placeholder">
+                        <div class="map-label">
+                            📍 Having a problem visit now
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             STAFF PORTAL
+        ====================================================== -->
+
+        <section class="staff-section">
+
+            <div class="container">
+
+                <div class="staff-box">
+
+                    <div>
+
+                        <div class="section-label">
+                            Shekinah Staff Portal
+                        </div>
+
+                        <h2>
+                            Staff & Management Access
+                        </h2>
+
+                        <p>
+                            Authorized Shekinah staff can securely access
+                            their pharmacy workspace, sales tools,
+                            attendance, inventory and other assigned
+                            business functions.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="openLogin()"
+                    >
+                        🔐 Staff Sign In
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-label">Contact Us</div>
+
+                    <h2>
+                        We're here to help.
+                    </h2>
+
+                    <p>
+                        For enquiries, pharmacy support and general
+                        information, please contact Shekinah Pharmacy.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <div class="contact-card">
+
+                        <h3>📞 Phone</h3>
+
+                        <p>
+                            Call us for enquiries and pharmacy support.
+                        </p>
+
+                        <!-- PHONE NUMBER PLACEHOLDER -->
+                        <div class="phone-number">
+                            0800 XXX XXXX
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <h3>📍 Location</h3>
+
+                        <p>
+                            Our current location is in:
+                        </p>
+
+                        <div class="phone-number">
+                            Lagos, Nigeria
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="container footer-grid">
+
+            <div>
+
+                <a href="#home" class="brand">
+
+                    <img
+                        src="pic.jpg"
+                        alt="Shekinah Pharmacy"
+                        class="brand-logo"
+                    >
+
+                    <div class="brand-text">
+                        <div class="brand-name">
+                            Shekinah Pharmacy
+                        </div>
+
+                        <div class="brand-tagline">
+                            Promoting Total Health
+                        </div>
+                    </div>
+
+                </a>
+
+                <p>
+                    Shekinah Pharmacy is committed to providing healthcare
+                    solutions with compassion and professionalism.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Quick Links</h4>
+
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#products">Products</a>
+                <a href="#location">Location</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Contact</h4>
+
+                <a href="#contact">📍 Lagos, Nigeria</a>
+                <a href="#contact">📞 0800 XXX XXXX</a>
+                <a href="#contact">✉️ info@shekinahpharmacy.com</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container copyright">
+
+            © <span id="year"></span> Shekinah Pharmacy.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         STAFF LOGIN MODAL
+    ========================================================== -->
+
+    <div class="modal" id="loginModal">
+
+        <div class="login-box">
+
+            <button
+                class="close-modal"
+                onclick="closeLogin()"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+            <img
+                src="shekinah-logo.png"
+                alt="Shekinah Pharmacy"
+                class="login-logo"
+            >
+
+            <h2>Staff Sign In</h2>
+
+            <p class="login-subtitle">
+                Access the Shekinah Pharmacy staff portal.
+            </p>
+
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email / Staff ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="Enter your email or staff ID"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <a href="#" class="forgot" onclick="forgotPassword(event)">
+                    Forgot your password?
+                </a>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary login-submit"
+                >
+                    Sign In
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =====================================================
+           CURRENT YEAR
+        ====================================================== */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
+
+        function toggleMobileMenu() {
+
+            const menu =
+                document.getElementById("mobileMenu");
+
+            menu.classList.toggle("active");
+        }
+
+
+        function closeMobileMenu() {
+
+            const menu =
+                document.getElementById("mobileMenu");
+
+            menu.classList.remove("active");
+        }
+
+
+        /* =====================================================
+           LOGIN MODAL
+        ====================================================== */
+
+        function openLogin() {
+
+            document
+                .getElementById("loginModal")
+                .classList.add("active");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        function closeLogin() {
+
+            document
+                .getElementById("loginModal")
+                .classList.remove("active");
+
+            document.body.style.overflow = "";
+        }
+
+
+        /* Close modal by clicking outside */
+
+        document
+            .getElementById("loginModal")
+            .addEventListener("click", function(event) {
+
+                if (event.target === this) {
+                    closeLogin();
+                }
+
+            });
+
+
+        /* =====================================================
+           FORGOT PASSWORD
+        ====================================================== */
+
+        async function forgotPassword(event) {
+            event.preventDefault();
+
+            const emailOrStaffId =
+                document.getElementById("email").value.trim();
+
+            if (!emailOrStaffId) {
+                alert("Please enter your email address first.");
+                return;
+            }
+
+            let recoveryEmail = emailOrStaffId;
+
+            try {
+                if (!emailOrStaffId.includes("@")) {
+                    const { data: staffEmail, error } = await supabaseClient.rpc(
+                        "get_login_email_by_staff_id",
+                        { p_staff_id: emailOrStaffId }
+                    );
+
+                    if (error || !staffEmail) {
+                        alert("We could not find that Staff ID.");
+                        return;
+                    }
+
+                    recoveryEmail = staffEmail;
+                }
+
+                const { error } = await supabaseClient.auth.resetPasswordForEmail(
+                    recoveryEmail,
+                    {
+                        redirectTo:
+                            window.location.origin + "/reset-password.html"
+                    }
+                );
+
+                if (error) throw error;
+
+                alert(
+                    "If that account exists, a password reset email has been sent."
+                );
+            } catch (error) {
+                console.error("Password recovery error:", error);
+                alert(
+                    "Unable to start password recovery. Please try again."
+                );
+            }
+        }
+
+
+        /* =====================================================
+           ESC KEY CLOSES LOGIN
+        ====================================================== */
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                closeLogin();
+            }
+
+        });
+
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    /*
+     * SHEKINAH PHARMACY — SUPABASE CONNECTION
+     *
+     * Replace these with your Supabase Project URL and Publishable key.
+     * NEVER put a Supabase secret/service-role key in this HTML file.
+     */
+    const SUPABASE_URL = "https://manyvsuibdemvclgxoyl.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_ZMeTYOLRhxGJpgKxmuCvMw_OVNxGe3X";
+
+    const supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+    /*
+     * SHEKINAH PHARMACY — STAFF LOGIN
+     *
+     * The existing login design and HTML fields are preserved.
+     */
+    const loginForm = document.getElementById("loginForm");
+    const loginButton = loginForm.querySelector('button[type="submit"]');
+
+    loginForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const emailOrStaffId =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+        if (!emailOrStaffId || !password) {
+            showLoginMessage(
+                "Please enter your Email / Staff ID and password.",
+                "error"
+            );
+            return;
+        }
+
+        loginButton.disabled = true;
+        loginButton.textContent = "Signing In...";
+
+        try {
+            let loginEmail = emailOrStaffId;
+
+            /*
+             * Staff-ID login uses a secure database function.
+             * Do not expose staff emails through an unrestricted browser query.
+             */
+            if (!emailOrStaffId.includes("@")) {
+                const { data: staffEmail, error: staffError } =
+                    await supabaseClient.rpc(
+                        "get_login_email_by_staff_id",
+                        { p_staff_id: emailOrStaffId }
+                    );
+
+                if (staffError) {
+                    console.error(staffError);
+                    throw new Error("Staff ID lookup failed.");
+                }
+
+                if (!staffEmail) {
+                    showLoginMessage(
+                        "Staff ID or password is incorrect.",
+                        "error"
+                    );
+                    return;
+                }
+
+                loginEmail = staffEmail;
+            }
+
+            const { data, error } =
+                await supabaseClient.auth.signInWithPassword({
+                    email: loginEmail,
+                    password: password
+                });
+
+            if (error) {
+                console.error(error);
+                showLoginMessage(
+                    "Invalid Email / Staff ID or password.",
+                    "error"
+                );
+                return;
+            }
+
+            if (!data.user) {
+                showLoginMessage(
+                    "Unable to sign you in. Please try again.",
+                    "error"
+                );
+                return;
+            }
+
+            /*
+             * Load the staff profile using the authenticated Auth user ID.
+             */
+            const { data: staffProfile, error: profileError } =
+                await supabaseClient
+                    .from("staff")
+                    .select(`
+                        id,
+                        staff_id,
+                        full_name,
+                        email,
+                        role_id,
+                        account_status,
+                        branch_id,
+                        roles (
+                            role_name
+                        )
+                    `)
+                    .eq("auth_user_id", data.user.id)
+                    .maybeSingle();
+
+            if (profileError) {
+                console.error(profileError);
+                throw profileError;
+            }
+
+            if (!staffProfile) {
+                await supabaseClient.auth.signOut();
+
+                showLoginMessage(
+                    "Your account is authenticated but your staff profile could not be found.",
+                    "error"
+                );
+                return;
+            }
+
+            if (staffProfile.account_status !== "active") {
+                await supabaseClient.auth.signOut();
+
+                showLoginMessage(
+                    "Your account has been deactivated.",
+                    "error"
+                );
+                return;
+            }
+
+            const roleName =
+                staffProfile.roles?.role_name?.toLowerCase();
+
+            if (!roleName) {
+                await supabaseClient.auth.signOut();
+
+                showLoginMessage(
+                    "Your account has no valid role assigned. Please contact an administrator.",
+                    "error"
+                );
+                return;
+            }
+
+            showLoginMessage(
+                "Sign in successful. Opening your dashboard...",
+                "success"
+            );
+
+            setTimeout(function () {
+                if (roleName === "ceo") {
+                    window.location.href = "ceo-dashboard.html";
+                } else if (roleName === "admin") {
+                    window.location.href = "admin-dashboard.html";
+                } else {
+                    window.location.href = "staff-dashboard.html";
+                }
+            }, 800);
+
+        } catch (error) {
+            console.error("Login error:", error);
+
+            showLoginMessage(
+                "Something went wrong. Please try again.",
+                "error"
+            );
+        } finally {
+            loginButton.disabled = false;
+            loginButton.textContent = "Sign In";
+        }
+    });
+
+    function showLoginMessage(message, type) {
+        let messageBox =
+            document.getElementById("loginMessage");
+
+        if (!messageBox) {
+            messageBox = document.createElement("div");
+            messageBox.id = "loginMessage";
+            loginForm.prepend(messageBox);
+        }
+
+        messageBox.textContent = message;
+        messageBox.className =
+            "login-message " + type;
+    }
+</script>
+</body>
+</html>
